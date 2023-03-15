@@ -1,7 +1,13 @@
 package Locations;
 import Player.SpecialFunc;
+import Sounds.Sound;
 import Zombies.*;
 import Player.*;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
+
 public abstract class BattleLoc extends Location {
     SpecialFunc specialFunc = new SpecialFunc();
     Zombie zombie;
@@ -12,9 +18,9 @@ public abstract class BattleLoc extends Location {
     public BattleLoc(Zombie zombie, Player player){
         this.zombie = zombie;
         this.player = player;
-    };
+    }
 
-    public  void combat(Inventory inventory) throws InterruptedException {
+    public  void combat(Inventory inventory) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
         specialFunc.cls();
         int zombieCount = zombie.getCount();
         while (player.getHealthy()>0 && zombieCount>0 ) {
@@ -26,6 +32,7 @@ public abstract class BattleLoc extends Location {
                     if (zombie.getHealth() <= 0) {
                         zombieCount--;
                         player.setMoney(player.getMoney() + zombie.getMoney());
+                        Sound.money();
                         switch (zombie.getId()){
                             case 1:
                                 deadNormal++;
@@ -58,5 +65,5 @@ public abstract class BattleLoc extends Location {
         Thread.sleep(2000);
         specialFunc.cls();
 
-    };
+    }
 }

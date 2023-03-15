@@ -68,7 +68,7 @@ public  class SpecialFunc{
     }
     public String getDoubleBox(String a,String e){
         String str = getAny();
-        if(!(str.equals(a) ^ str.equals(e))){
+        if(str.equals(a) == str.equals(e)){
             System.out.printf("Your entry was wrong, You should enter %s or %s%n",a,e);
             str = getDoubleBox(a,e);
         }

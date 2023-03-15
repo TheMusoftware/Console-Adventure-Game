@@ -47,7 +47,7 @@ public class Game {
         //Thread.sleep(3000);
         specialFunc.cls();
     }
-    public void selectLocation() throws InterruptedException {
+    public void selectLocation() throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
         System.out.println(" _____________________________________________\n" +
                 "|.'',        Select  where you go         ,''.|\n" +
                 "|.'.'',                                 ,''.'.|\n" +
@@ -117,13 +117,10 @@ public class Game {
         partingGift();
     }
     boolean checkStatus() {
-        if (inventory.isFire() && inventory.isFood() && inventory.isWater()) return true;
-        return false;
+        return inventory.isFire() && inventory.isFood() && inventory.isWater();
     }
     boolean checkHp(){
-        if(player.getHealthy()<=0) return false;
-
-        return true;
+        return player.getHealthy() > 0;
     }
     void partingGift(){
         if(checkHp())
@@ -147,7 +144,7 @@ public class Game {
                 "            `\\|\n" +
                 "              '\n",player.getName());
         else
-            System.out.printf("      _____|~~\\_____      _____________\n" +
+            System.out.print("      _____|~~\\_____      _____________\n" +
                     "  _-~               \\    |    \\\n" +
                     "  _-    | )     \\    |__/   \\   \\ \t\t\t You died as a result of an unfortunate event.\n" +
                     "  _-         )   |   |  |     \\  \\ \t\t\t Now you will live in the real world only as data :)\n" +

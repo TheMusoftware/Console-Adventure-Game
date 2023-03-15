@@ -16,9 +16,37 @@ public class Sound {
             clip.start();
         }
         catch (Exception e){
-            System.out.println(e.toString());
+            System.out.println(e);
         }
-
     }
+
+    public static void money() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        InputStream stream = Sound.class.getResourceAsStream("/Sounds/money.wav");
+        InputStream bufferedIn = new BufferedInputStream(stream);
+        try{
+            AudioInputStream audioStream=AudioSystem.getAudioInputStream(bufferedIn);
+            Clip clip=AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+    public static void ambient() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        InputStream stream = Sound.class.getResourceAsStream("/Sounds/warambient.wav");
+        InputStream bufferedIn = new BufferedInputStream(stream);
+        try{
+            AudioInputStream audioStream=AudioSystem.getAudioInputStream(bufferedIn);
+            Clip clip=AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+
 
 }

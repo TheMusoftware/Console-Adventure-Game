@@ -1,13 +1,17 @@
 package Locations;
 import  ArmorAndGuns.*;
 import Player.*;
+import Sounds.Sound;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 import java.lang.management.PlatformLoggingMXBean;
 
 public class Shop{
     SpecialFunc specialFunc = new SpecialFunc();
 
-    public void printGuns(Inventory inventory, Player player) throws InterruptedException {
+    public void printGuns(Inventory inventory, Player player) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
         Guns g36e = new G36E();
         Guns at22 = new AT22();
         Guns azazel = new Azazel();
@@ -53,7 +57,7 @@ public class Shop{
 
         }
     }
-    public void printShields(Inventory inventory,Player player) throws InterruptedException {
+    public void printShields(Inventory inventory,Player player) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
         Vest heavy = new HeavyVest();
         Vest recon = new ReconVest();
         Vest light = new LightVest();
@@ -94,29 +98,31 @@ public class Shop{
     boolean checkBalance(int balance, int price){
         return balance > price;
     }
-    void buyVest(Vest vest,Player player,Inventory inventory) throws InterruptedException {
+    void buyVest(Vest vest,Player player,Inventory inventory) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
         if(checkBalance(player.getMoney(), vest.getPrice())){
             player.setMoney(player.getMoney() - vest.getPrice());
             inventory.setVestName(vest.getName());
             inventory.setVestDefence(vest.getDefense());
             System.out.printf("%s was successfully purchased%nYour money: %d%n",vest.getName(),player.getMoney());
+            Sound.money();
         }
         else System.out.println("Operation cancelled as you don't have enough money.\n");
         Thread.sleep(3000);
         specialFunc.cls();
     }
-    void buyGun(Guns gun, Player player, Inventory inventory) throws InterruptedException {
+    void buyGun(Guns gun, Player player, Inventory inventory) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
         if(checkBalance(player.getMoney(), gun.getPrice())){
             player.setMoney(player.getMoney()- gun.getPrice());
             inventory.setWeaponName(gun.getName());
             inventory.setWeaponDamage(gun.getDamage());
             System.out.printf("%s was successfully purchased%nYour money: %d%n",gun.getName(),player.getMoney());
+            Sound.money();
         }
         else System.out.println("Operation cancelled as you don't have enough money.\n");
         Thread.sleep(3000);
         specialFunc.cls();
     }
-    public void printPlace(Inventory inventory, Player player) throws InterruptedException {
+    public void printPlace(Inventory inventory, Player player) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
         System.out.println("                 \n" +
                 "   |\\                     /)\n" +
                 " /\\_\\\\__               (_//\n" +

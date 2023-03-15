@@ -34,5 +34,5 @@ public class Vest {
         this.defense = defense;
         this.price = price;
     }
-    public Vest(){};
+    public Vest(){}
 }
