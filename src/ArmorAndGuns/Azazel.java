@@ -2,6 +2,6 @@ package ArmorAndGuns;
 
 public class Azazel extends Guns{
     public Azazel() {
-        super("Azazel", 50, 21);
+        super("Azazel", 50, 210);
     }
 }

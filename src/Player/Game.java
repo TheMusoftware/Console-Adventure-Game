@@ -44,8 +44,9 @@ public class Game {
         player.selectCharacter();
         specialFunc.cls();
         player.showPlayerInfo();
-        //Thread.sleep(3000);
+        Thread.sleep(3000);
         specialFunc.cls();
+        //Sound.stopMenuTheme();
     }
     public void selectLocation() throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
         System.out.println(" _____________________________________________\n" +
@@ -96,7 +97,7 @@ public class Game {
             case 5:
                 House house = new House(player);
                 house.printPlace();
-                inventory.showInventory();
+                inventory.showInventory(player.getMoney());
                 System.out.printf("Your money: %d%n",player.getMoney());
                 System.out.println("Press enter to exit...");
                 specialFunc.getAny();
@@ -115,6 +116,7 @@ public class Game {
         selectLocation();
         }
         partingGift();
+        Thread.sleep(3000);
     }
     boolean checkStatus() {
         return inventory.isFire() && inventory.isFood() && inventory.isWater();

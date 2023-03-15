@@ -65,9 +65,20 @@ public class Inventory {
     public void setVestDefence(int vestDefence) {
         this.vestDefence = vestDefence;
     }
-    public  void showInventory(){
-        System.out.printf("Your weapon: %s%nWeapon Attack: %d%nYour vest: %s%nVest Defence: %d%n",getWeaponName(),getWeaponDamage(),getVestName(),getVestDefence());
-        System.out.printf("Items:%nFood: %b%nWater: %b%nFire: %b%n",isFood(),isWater(),isFire());
+    public  void showInventory(int money){
+        String strFood,strWater,strFire;
+        if(isFood())strFood = "Sufficient";
+        else strFood = "Insufficient";
+        if(isWater()) strWater = "Sufficient";
+        else strWater = "Insufficient";
+        if(isFire()) strFire = "Sufficient";
+        else strFire = "Insufficient";
+        System.out.println("-------------------- -------------------------");
+        System.out.printf(" Your weapon: %s  | $Money: %d%n " +
+                         "Weapon Attack: %d   | Food:  %s %n " +
+                         "Your vest: %s    | Water: %s %n " +
+                         "Vest Defence: %d    | Fire:  %s%n ",getWeaponName(),money,getWeaponDamage(),strFood,getVestName(),strWater,getVestDefence(),strFire);
+        System.out.println("-------------------- -------------------------");
     }
 
 }

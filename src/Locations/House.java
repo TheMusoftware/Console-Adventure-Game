@@ -22,10 +22,19 @@ public class House extends SafeLoc{
                 " / ^   ^   ^    ^  ||___|___||||||||||||___|__|||          | |\n" +
                 "/ ^ ^ ^  ^  ^  ^   ||||||||||||||||||||||||||||||oooooooooo| |ooooooo\n" +
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-        System.out.printf("Your old hp: %d%n",player.getHealthy());
-        player.setHealthy(player.getMaxHp());
-        System.out.printf("Your new hp: %d%n",player.getHealthy());
 
+        System.out.printf("     _____\n" +
+                "    [IIIII]\n" +
+                "     )\"\"\"(\n" +
+                "    /     \\\n" +
+                "   /       \\    Your current hp: %d\n" +
+                "   |`-...-'|\n" +
+                "   |asprin |     Your updated hp: %d\n" +
+                " _ |`-...-'j    _\n" +
+                "(\\)`-.___.(I) _(/)\n" +
+                "  (I)  (/)(I)(\\)\n" +
+                "     (I)           %n",player.getHealthy(),player.getMaxHp());
+        player.setHealthy(player.getMaxHp());
     }
 
 

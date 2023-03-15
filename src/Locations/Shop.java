@@ -18,7 +18,7 @@ public class Shop{
         System.out.printf("        ^         \n" +
                 "         | |        \n" +
                 "       @#####@      \n" +
-                "     (###   ###)-.  \n" +
+                "     (###   ###)-.  \t\t\t\t\t\t\tMoney: %d\n" +
                 "   .(###     ###) \\ \n" +
                 "  /  (###   ###)   )\n" +
                 " (=-  .@#####@|_--\" \tDrop your money and choose the gun you want dude!\n" +
@@ -35,7 +35,7 @@ public class Shop{
                 "\n" +
                 "         V\n" +
                 "             V\n" +
-                "           V%n",g36e.getName(),g36e.getDamage(),g36e.getPrice(),at22.getName(),at22.getDamage(),at22.getPrice(),azazel.getName(),azazel.getDamage(),azazel.getPrice());
+                "           V%n",player.getMoney(),g36e.getName(),g36e.getDamage(),g36e.getPrice(),at22.getName(),at22.getDamage(),at22.getPrice(),azazel.getName(),azazel.getDamage(),azazel.getPrice());
 
         int selection = specialFunc.getNumber(0,3);
         switch (selection){
@@ -61,11 +61,11 @@ public class Shop{
         Vest heavy = new HeavyVest();
         Vest recon = new ReconVest();
         Vest light = new LightVest();
-        System.out.println(" ___| |__ (_) ___| | __| |___ \n" +
+        System.out.printf(" ___| |__ (_) ___| | __| |___ \n" +
                 " / __| '_ \\| |/ _ \\ |/ _` / __|\n" +
                 " \\__ \\ | | | |  __/ | (_| \\__ \\\n" +
                 " |___/_| |_|_|\\___|_|\\__,_|___/\n" +
-                "armor - protection - metal");
+                "armor - protection - metal \t\t\tMoney: %d%n",player.getMoney());
         System.out.printf("-------Name-------Defence-------Price-------\n"
                           +"|1- %s       %d          %d      | \n",light.getName(),light.getDefense(),light.getPrice());
         System.out.printf("--------------------------------------------\n"
@@ -123,8 +123,8 @@ public class Shop{
         specialFunc.cls();
     }
     public void printPlace(Inventory inventory, Player player) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
-        System.out.println("                 \n" +
-                "   |\\                     /)\n" +
+        System.out.printf("                 \n" +
+                "   |\\                     /) \t\t\t\t\tMoney: %d\n" +
                 " /\\_\\\\__               (_//\n" +
                 "|   `>\\-`     _._       //`)\n" +
                 " \\ /` \\\\  _.-`:::`-._  //\n" +
@@ -138,21 +138,18 @@ public class Shop{
                 "          `-. ::: .-'\n" +
                 "           //`:::`\\\\\n" +
                 "          //   '   \\\\\n" +
-                "         |/         \\\\");
+                "         |/         \\\\%n",player.getMoney());
         int selection = specialFunc.getNumber(2);
         specialFunc.cls();
         switch (selection){
             case 1:
                 printGuns(inventory, player);
-
                 break;
             case 2:
                 printShields(inventory,player);
                 break;
-
+            default:
+                break;
         }
-
     }
-
-
 }
