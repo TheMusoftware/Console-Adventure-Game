@@ -28,11 +28,13 @@ public abstract class BattleLoc extends Location {
         while (player.getHealthy()>0 && zombieCount>0 ) {
             System.out.printf("There was %d %s(s)%nPress (a) attack Press (e) escape: ", zombieCount, zombie.getName());
             String str = specialFunc.getDoubleBox("a","e");
-            switch (str.toLowerCase()) {
+            switch (str) {
                 case "a":
                     zombie.setHealth(zombie.getHealth() - this.player.getDamage()-inventory.getWeaponDamage());
                     if (zombie.getHealth() <= 0) {
                         zombieCount--;
+                        if(zombieCount!=0)
+                        zombie.setHealth(player.getDamage() + inventory.getWeaponDamage() - zombie.getHealth());
                         player.setMoney(player.getMoney() + zombie.getMoney());
                         Sound.money();
                         switch (zombie.getId()){
@@ -53,7 +55,7 @@ public abstract class BattleLoc extends Location {
                         }
                     }
                     player.setHealthy(player.getHealthy()-zombie.getDamage()*zombieCount+inventory.getVestDefence()*zombieCount);
-                    if(player.getHealthy()<0) player.setHealthy(0);
+                    if(player.getHealthy()<0 && zombieCount>0) player.setHealthy(0);
                     System.out.printf("%s(s) attack you your reaming HP %d%n", zombie.getName(), player.getHealthy());
                     break;
                 case "e":

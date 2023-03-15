@@ -25,7 +25,7 @@ public class Shop{
                 " /\\    \\_|l|_/ (\\   \t-------Name-------Damage-------Price--------\n" +
                 "(=-\\     |l|    /     \t| 1- \t%s        %d          %d        |\n" +
                 " \\  \\.___|l|___/     \t| 2-  \t%s      %d          %d        |\n" +
-                " /\\      |_|   /      \t| 3-   \t%s      %d          %d         |\n" +
+                " /\\      |_|   /      \t| 3-   \t%s      %d         %d       |\n" +
                 "(=-\\._________/\\     \t--------------------------------------------   \n" +
                 " \\             /       \t Select vest or press 0 to exit.\n" +
                 "   \\._________/     \n" +
@@ -67,7 +67,7 @@ public class Shop{
                 " |___/_| |_|_|\\___|_|\\__,_|___/\n" +
                 "armor - protection - metal \t\t\tMoney: %d%n",player.getMoney());
         System.out.printf("-------Name-------Defence-------Price-------\n"
-                          +"|1- %s       %d          %d      | \n",light.getName(),light.getDefense(),light.getPrice());
+                          +"|1- %s        %d         %d      | \n",light.getName(),light.getDefense(),light.getPrice());
         System.out.printf("--------------------------------------------\n"
                 +"|2- %s        %d         %d      | \n",recon.getName(),recon.getDefense(),recon.getPrice());
         System.out.printf("--------------------------------------------\n"

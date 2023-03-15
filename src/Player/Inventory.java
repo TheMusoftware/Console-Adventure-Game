@@ -73,12 +73,12 @@ public class Inventory {
         else strWater = "Insufficient";
         if(isFire()) strFire = "Sufficient";
         else strFire = "Insufficient";
-        System.out.println("-------------------- -------------------------");
-        System.out.printf(" Your weapon: %s  | $Money: %d%n " +
-                         "Weapon Attack: %d   | Food:  %s %n " +
-                         "Your vest: %s    | Water: %s %n " +
-                         "Vest Defence: %d    | Fire:  %s%n ",getWeaponName(),money,getWeaponDamage(),strFood,getVestName(),strWater,getVestDefence(),strFire);
-        System.out.println("-------------------- -------------------------");
+        System.out.println("-------------------- --------------------------------");
+        System.out.printf(" Your weapon: %-15s   | $Money: %d%n " +
+                         "Weapon Attack: %-13d   | Food:  %s %n " +
+                         "Your vest: %-13s       | Water: %s %n " +
+                         "Vest Defence: %-13d    | Fire:  %s%n ",getWeaponName(),money,getWeaponDamage(),strFood,getVestName(),strWater,getVestDefence(),strFire);
+        System.out.println("-------------------- -------------------------------");
     }
 
 }
