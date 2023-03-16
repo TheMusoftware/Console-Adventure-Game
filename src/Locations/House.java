@@ -7,7 +7,7 @@ public class House extends SafeLoc{
 
     @Override
     public void printPlace() {
-        System.out.println("                                  /\\\n" +
+        System.out.println("                                   /\\\n" +
                 "                              /\\  //\\\\\n" +
                 "                       /\\    //\\\\///\\\\\\        /\\\n" +
                 "                      //\\\\  ///\\////\\\\\\\\  /\\  //\\\\\n" +

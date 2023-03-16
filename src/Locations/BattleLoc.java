@@ -21,7 +21,7 @@ public abstract class BattleLoc extends Location {
     }
 
     public  void combat(Inventory inventory) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
-        specialFunc.cls();
+        //specialFunc.cls();
         Sound.stopMenuTheme();
         Sound.ambient();
         int zombieCount = zombie.getCount();
