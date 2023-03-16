@@ -57,6 +57,7 @@ public abstract class BattleLoc extends Location {
                     player.setHealthy(player.getHealthy()-zombie.getDamage()*zombieCount+inventory.getVestDefence()*zombieCount);
                     if(player.getHealthy()<0 && zombieCount>0) player.setHealthy(0);
                     System.out.printf("%s(s) attack you your reaming HP %d%n", zombie.getName(), player.getHealthy());
+                    Sound.hurtPain();
                     break;
                 case "e":
                     Sound.coward();

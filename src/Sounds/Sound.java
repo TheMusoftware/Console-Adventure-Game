@@ -83,4 +83,18 @@ public class Sound {
             System.out.println(e);
         }
     }
+
+    public static void hurtPain(){
+        InputStream stream = Sound.class.getResourceAsStream("/Sounds/hurtpain.WAV");
+        InputStream bufferedIn = new BufferedInputStream(stream);
+        try{
+            AudioInputStream audioStream=AudioSystem.getAudioInputStream(bufferedIn);
+            Clip clip=AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
 }
