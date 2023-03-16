@@ -43,10 +43,12 @@ public class Game {
         specialFunc.cls();
         player.selectCharacter();
         specialFunc.cls();
-        player.showPlayerInfo();
-        Thread.sleep(3000);
+        System.out.printf(" Different types of zombies appeared as the infection spread rapidly near your village,%n" +
+                " you need food, water and fire to protect your village. And I forgot to mention that collecting them requires a hero,%n" +
+                " and I heard the hero's name is %s. If you think you are the right person,%n" +
+                " destroy 10 of each zombie type and get the necessary items.%n%n",player.getName());
+        Thread.sleep(9000);
         specialFunc.cls();
-        //Sound.stopMenuTheme();
     }
     public void selectLocation() throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
         System.out.println(" _____________________________________________\n" +
