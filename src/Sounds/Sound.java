@@ -57,7 +57,7 @@ public class Sound {
         }
     }
     public static void coward(){
-        InputStream stream = Sound.class.getResourceAsStream("/Sounds/coward.wav");
+        InputStream stream = Sound.class.getResourceAsStream("/Sounds/coward.WAV");
         InputStream bufferedIn = new BufferedInputStream(stream);
         try{
             AudioInputStream audioStream=AudioSystem.getAudioInputStream(bufferedIn);
@@ -70,7 +70,7 @@ public class Sound {
         }
     }
     public static void goodJob(){
-        InputStream stream = Sound.class.getResourceAsStream("/Sounds/goodjob.wav");
+        InputStream stream = Sound.class.getResourceAsStream("/Sounds/goodjob.WAV");
         InputStream bufferedIn = new BufferedInputStream(stream);
         try{
             AudioInputStream audioStream=AudioSystem.getAudioInputStream(bufferedIn);
