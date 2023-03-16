@@ -34,6 +34,7 @@ public class Sound {
             clipAmbient= AudioSystem.getClip();
             clipAmbient.open(audioStreamAmbient);
             clipAmbient.start();
+            clipAmbient.loop(Clip.LOOP_CONTINUOUSLY);
         }
         catch (Exception e){
             System.out.println(e);
