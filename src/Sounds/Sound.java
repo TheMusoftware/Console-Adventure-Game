@@ -26,6 +26,19 @@ public class Sound {
         audioStreamMenu.close();
         clipMenu.stop();
     }
+    public static void playAmbient() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        InputStream stream = Sound.class.getResourceAsStream("/Sounds/warambient.wav");
+        InputStream bufferedIn = new BufferedInputStream(stream);
+        try{
+            audioStreamAmbient = AudioSystem.getAudioInputStream(bufferedIn);
+            clipAmbient= AudioSystem.getClip();
+            clipAmbient.open(audioStreamAmbient);
+            clipAmbient.start();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
     public static void stopAmbient() throws IOException {
         audioStreamAmbient.close();
         clipAmbient.stop();
@@ -43,14 +56,27 @@ public class Sound {
             System.out.println(e);
         }
     }
-    public static void ambient() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        InputStream stream = Sound.class.getResourceAsStream("/Sounds/warambient.wav");
+    public static void coward(){
+        InputStream stream = Sound.class.getResourceAsStream("/Sounds/coward.wav");
         InputStream bufferedIn = new BufferedInputStream(stream);
         try{
-            audioStreamAmbient = AudioSystem.getAudioInputStream(bufferedIn);
-            clipAmbient= AudioSystem.getClip();
-            clipAmbient.open(audioStreamAmbient);
-            clipAmbient.start();
+            AudioInputStream audioStream=AudioSystem.getAudioInputStream(bufferedIn);
+            Clip clip=AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+    public static void goodJob(){
+        InputStream stream = Sound.class.getResourceAsStream("/Sounds/goodjob.wav");
+        InputStream bufferedIn = new BufferedInputStream(stream);
+        try{
+            AudioInputStream audioStream=AudioSystem.getAudioInputStream(bufferedIn);
+            Clip clip=AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
         }
         catch (Exception e){
             System.out.println(e);

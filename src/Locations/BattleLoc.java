@@ -23,7 +23,7 @@ public abstract class BattleLoc extends Location {
     public  void combat(Inventory inventory) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
         //specialFunc.cls();
         Sound.stopMenuTheme();
-        Sound.ambient();
+        Sound.playAmbient();
         int zombieCount = zombie.getCount();
         while (player.getHealthy()>0 && zombieCount>0 ) {
             System.out.printf("There was %d %s(s)%nPress (a) attack Press (e) escape: ", zombieCount, zombie.getName());
@@ -59,11 +59,13 @@ public abstract class BattleLoc extends Location {
                     System.out.printf("%s(s) attack you your reaming HP %d%n", zombie.getName(), player.getHealthy());
                     break;
                 case "e":
+                    Sound.coward();
                     System.out.println("You're going back to your village empty-handed, coward!");
                     zombieCount = -1;
             }
         }
         if(zombieCount==0){
+            Sound.goodJob();
             System.out.println("You killed all the zombies, you're going back to the Village");
         }
         Thread.sleep(2000);
